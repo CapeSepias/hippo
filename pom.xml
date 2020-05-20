@@ -9,7 +9,7 @@
     <parent>
         <groupId>com.onehippo.cms7</groupId>
         <artifactId>hippo-cms7-enterprise-release</artifactId>
-        <version>13.4.4-contentfeed-EAP3</version>
+        <version>14.1.0</version>
         <!-- Please have a look at the property section while upgrading -->
     </parent>
     <name>NHS Digital Website</name>
@@ -80,13 +80,12 @@
         This behaviour is described in Maven's documentation at:
         http://maven.apache.org/guides/introduction/introduction-to-the-pom.html#project-interpolation-and-variables
         -->
-        <hippo.version>13.4.4-contentfeed-EAP3</hippo.version>
-
+        <hippo.version>14.1.0</hippo.version>
+        <h2.database.version>1.4.199</h2.database.version>
         <development-module-deploy-dir>shared/lib</development-module-deploy-dir>
         <local-module-deploy-dir>shared/lib</local-module-deploy-dir>
 
         <hippo.cms.locales></hippo.cms.locales>
-
 
         <!-- revision variable is set by automation tools. dev-SNAPSHOT is the
         default, local value. Please don't change it. -->
@@ -119,8 +118,7 @@
 
         <!--<tomcatDistributionUrl>https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.48/bin/apache-tomcat-8.0.48.tar.gz</tomcatDistributionUrl>-->
 
-        <forge.folderctxmenus.version>4.0.1</forge.folderctxmenus.version>
-        <essentials.version>13.4.2</essentials.version>
+        <forge.folderctxmenus.version>5.0.0</forge.folderctxmenus.version>
         <spring.version>5.1.15.RELEASE</spring.version>
         <bloomreach.addon-content-feed.version>13.4.4-contentfeed-EAP3</bloomreach.addon-content-feed.version>
 
@@ -190,6 +188,13 @@
 
     <dependencyManagement>
         <dependencies>
+
+            <dependency>
+                <groupId>com.h2database</groupId>
+                <artifactId>h2</artifactId>
+                <version>${h2.database.version}</version>
+                <scope>runtime</scope>
+            </dependency>
 
             <dependency>
                 <groupId>org.onehippo.forge</groupId>
@@ -783,19 +788,15 @@
                 <configuration>
                     <rules>
                         <reactorModuleConvergence/>
-<!--                        <requireUpperBoundDeps>-->
-<!--                            <excludes>-->
-<!--                                <exclude>com.google.guava:guava</exclude>-->
-<!--                                <exclude>org.slf4j:slf4j-api</exclude>-->
-<!--                                <exclude>org.slf4j:jcl-over-slf4j</exclude>-->
-<!--                                <exclude>javax.ws.rs:javax.ws.rs-api</exclude>-->
-<!--                                <exclude>commons-beanutils:commons-beanutils</exclude>-->
-<!--                                <exclude>org.springframework:spring-context-support</exclude>-->
-<!--                                <exclude>org.springframework:*</exclude>-->
-<!--                                <exclude>commons-digester:commons-digester</exclude>-->
-<!--                                <exclude>org.apache.pdfbox:pdfbox</exclude>-->
-<!--                            </excludes>-->
-<!--                        </requireUpperBoundDeps>-->
+                        <requireUpperBoundDeps>
+                            <excludes>
+                                <exclude>com.google.guava:guava</exclude>
+                                <exclude>org.slf4j:slf4j-api</exclude>
+                                <exclude>org.slf4j:jcl-over-slf4j</exclude>
+                                <exclude>javax.ws.rs:javax.ws.rs-api</exclude>
+                                <exclude>commons-beanutils:commons-beanutils</exclude>
+                            </excludes>
+                        </requireUpperBoundDeps>
                         <requireJavaVersion>
                             <!-- Any Java 8 version is allowed -->
                             <version>[1.8.0,1.8.1)</version>
@@ -943,7 +944,7 @@
                                 </files>
                                 <properties>
                                     <cargo.jvmargs>
-                                        -Xmx5120m
+                                        -Xmx1024m
                                         -Duser.timezone=Etc/UTC
                                         -Dfile.encoding=ANSI_X3.4-1968
                                     </cargo.jvmargs>
@@ -977,7 +978,6 @@
                                 </deployable>
                             </deployables>
                             <container>
-                                <timeout>120000000</timeout>
                                 <zipUrlInstaller>
                                     <url>${cargo.tomcat.distribution.url}</url>
                                 </zipUrlInstaller>
