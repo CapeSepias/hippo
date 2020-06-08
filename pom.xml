@@ -12,6 +12,7 @@
         <version>14.2.1</version>
         <!-- Please have a look at the property section while upgrading -->
     </parent>
+
     <name>NHS Digital Website</name>
     <description>NHS Digital Website</description>
     <groupId>uk.nhs.digital</groupId>
@@ -573,7 +574,6 @@
             </dependency>
 
             <!-- Inference Rule Engine -->
-
             <dependency>
                 <groupId>com.bloomreach.cms.relevance-inference-engine</groupId>
                 <artifactId>relevance-inference-engine-core</artifactId>
@@ -638,6 +638,18 @@
                 <version>${commonmark.version}</version>
             </dependency>
 
+            <!-- Ip Filter Plugin -->
+            <dependency>
+                <groupId>org.bloomreach.forge.ipfilter</groupId>
+                <artifactId>bloomreach-ipfilter-hst</artifactId>
+                <version>${bloomreach.forge.ipfilter.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.bloomreach.forge.ipfilter</groupId>
+                <artifactId>bloomreach-ipfilter-cms</artifactId>
+                <version>${bloomreach.forge.ipfilter.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

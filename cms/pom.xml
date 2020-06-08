@@ -220,6 +220,11 @@
             <artifactId>hippo-plugin-selections-hst-client</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>org.bloomreach.forge.ipfilter</groupId>
+            <artifactId>bloomreach-ipfilter-cms</artifactId>
+        </dependency>
+
         <!-- TEST DEPENDENCIES -->
         <dependency>
             <groupId>org.onehippo.cms7</groupId>
