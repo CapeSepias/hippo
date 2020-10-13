@@ -9,7 +9,7 @@
     <parent>
         <groupId>com.onehippo.cms7</groupId>
         <artifactId>hippo-cms7-enterprise-release</artifactId>
-        <version>14.2.2</version>
+        <version>14.3.2</version>
         <!-- Please have a look at the property section while upgrading -->
     </parent>
 
@@ -81,7 +81,7 @@
         This behaviour is described in Maven's documentation at:
         http://maven.apache.org/guides/introduction/introduction-to-the-pom.html#project-interpolation-and-variables
         -->
-        <hippo.version>14.1.0</hippo.version>
+        <bloomreach.version>14.3.2</bloomreach.version>
         <h2.database.version>1.4.199</h2.database.version>
         <development-module-deploy-dir>shared/lib</development-module-deploy-dir>
         <local-module-deploy-dir>shared/lib</local-module-deploy-dir>
@@ -121,7 +121,7 @@
 
         <forge.folderctxmenus.version>5.0.0</forge.folderctxmenus.version>
         <spring.version>5.1.15.RELEASE</spring.version>
-        <bloomreach.addon-content-feed.version>13.4.4-contentfeed-EAP3</bloomreach.addon-content-feed.version>
+        <bloomreach.forge.ipfilter.version>3.0.1</bloomreach.forge.ipfilter.version>
 
         <bloomreach.inference-engine.version>4.0.0</bloomreach.inference-engine.version>
         <org.eclipse.jetty.version>9.4.24.v20191120</org.eclipse.jetty.version>
@@ -183,7 +183,7 @@
         <dependency>
             <groupId>com.onehippo.cms7</groupId>
             <artifactId>hippo-addon-content-feed-search-api</artifactId>
-            <version>${bloomreach.addon-content-feed.version}</version>
+            <version>${bloomreach.version}</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
@@ -386,7 +386,7 @@
             <dependency>
                 <groupId>commons-codec</groupId>
                 <artifactId>commons-codec</artifactId>
-                <version>1.13</version>
+                <version>1.14</version>
             </dependency>
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
@@ -427,7 +427,7 @@
             <dependency>
                 <groupId>org.apache.httpcomponents</groupId>
                 <artifactId>httpclient</artifactId>
-                <version>4.5.9</version>
+                <version>4.5.6</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.httpcomponents</groupId>
@@ -622,7 +622,7 @@
             <dependency>
                 <groupId>org.onehippo.cms7</groupId>
                 <artifactId>hippo-addon-crisp-mock</artifactId>
-                <version>${hippo.version}</version>
+                <version>${bloomreach.version}</version>
             </dependency>
 
             <dependency>
@@ -801,24 +801,30 @@
                 <configuration>
                     <rules>
                         <reactorModuleConvergence/>
-                        <requireUpperBoundDeps>
-                            <excludes>
-                                <exclude>com.google.guava:guava</exclude>
-                                <exclude>org.slf4j:slf4j-api</exclude>
-                                <exclude>org.slf4j:jcl-over-slf4j</exclude>
-                                <exclude>javax.ws.rs:javax.ws.rs-api</exclude>
-                                <exclude>commons-beanutils:commons-beanutils</exclude>
-                                <exclude>org.ow2.asm:asm</exclude>
-                                <exclude>com.fasterxml.jackson.module:jackson-module-jaxb-annotations</exclude>
-                                <exclude>org.eclipse.jetty:jetty-io</exclude>
-                                <exclude>org.eclipse.jetty:jetty-server</exclude>
-                                <exclude>org.eclipse.jetty:jetty-util</exclude>
-                                <exclude>org.eclipse.jetty:jetty-io</exclude>
-                                <exclude>org.eclipse.jetty:jetty-security</exclude>
-                                <exclude>org.eclipse.jetty:jetty-continuation</exclude>
-                                <exclude>org.eclipse.jetty:jetty-http</exclude>
-                            </excludes>
-                        </requireUpperBoundDeps>
+<!--                        <requireUpperBoundDeps>-->
+<!--                            <excludes>-->
+<!--                                <exclude>com.google.guava:guava</exclude>-->
+<!--                                <exclude>org.slf4j:slf4j-api</exclude>-->
+<!--                                <exclude>org.slf4j:jcl-over-slf4j</exclude>-->
+<!--                                <exclude>javax.ws.rs:javax.ws.rs-api</exclude>-->
+<!--                                <exclude>commons-beanutils:commons-beanutils</exclude>-->
+<!--                                <exclude>org.ow2.asm:asm</exclude>-->
+<!--                                <exclude>com.fasterxml.jackson.module:jackson-module-jaxb-annotations</exclude>-->
+<!--                                <exclude>org.eclipse.jetty:jetty-io</exclude>-->
+<!--                                <exclude>org.eclipse.jetty:jetty-server</exclude>-->
+<!--                                <exclude>org.eclipse.jetty:jetty-util</exclude>-->
+<!--                                <exclude>org.eclipse.jetty:jetty-io</exclude>-->
+<!--                                <exclude>org.eclipse.jetty:jetty-security</exclude>-->
+<!--                                <exclude>org.eclipse.jetty:jetty-continuation</exclude>-->
+<!--                                <exclude>org.eclipse.jetty:jetty-http</exclude>-->
+<!--                                <exclude>org.springframework:spring-context</exclude>-->
+<!--                                <exclude>org.springframework:spring-webmvc</exclude>-->
+<!--                                <exclude>org.springframework:spring-aop</exclude>-->
+<!--                                <exclude>org.springframework:spring-beans</exclude>-->
+<!--                                <exclude>org.springframework:spring-core</exclude>-->
+<!--                                <exclude>org.springframework:spring-web</exclude>-->
+<!--                            </excludes>-->
+<!--                        </requireUpperBoundDeps>-->
                         <requireJavaVersion>
                             <!-- Any Java 8 version is allowed -->
                             <version>[1.8.0,1.8.1)</version>
@@ -938,7 +944,7 @@
                                     <configfile>
                                         <file>${project.basedir}/conf/content-search.properties</file>
                                         <todir>conf/</todir>
-                                        <tofile>hst.properties</tofile>
+                                        <tofile>platform.properties</tofile>
                                     </configfile>
                                     <configfile>
                                         <file>${project.basedir}/conf/query/lucene/indexing_configuration.xml</file>
