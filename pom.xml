@@ -942,7 +942,12 @@
                                         <tofile>logging.properties</tofile>
                                     </configfile>
                                     <configfile>
-                                        <file>${project.basedir}/conf/content-search.properties</file>
+                                        <file>${project.basedir}/conf/content-search-site.properties</file>
+                                        <todir>conf/</todir>
+                                        <tofile>hst.properties</tofile>
+                                    </configfile>
+                                    <configfile>
+                                        <file>${project.basedir}/conf/content-search-cms.properties</file>
                                         <todir>conf/</todir>
                                         <tofile>platform.properties</tofile>
                                     </configfile>
