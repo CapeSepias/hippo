@@ -70,7 +70,9 @@
                                             <p></p>
                                             <br/>
 
-                                            <h2>Request</h2>
+                                            {{#hasRequestParams hasPathParams hasHeaderParams hasBodyParam hasFormParams hasQueryParams}}
+                                                <h2>Request</h2>
+                                            {{/hasRequestParams}}
 
                                             {{#hasPathParams}}
                                                 <div class="httpparams">
@@ -144,8 +146,11 @@
                                                 </div>
                                             {{/hasQueryParams}}
 
-                                            <h2>Response</h2>
                                             {{#responses}}
+                                                {{#@first}}
+                                                    <h2>Response</h2>
+                                                {{/@first}}
+
                                                 <h3>HTTP status: {{code}}</h3>
                                                 <div>{{message}}</div>
 
