@@ -288,6 +288,7 @@ public class SearchComponent extends CommonComponent {
         for (Map.Entry<String, Object> entry : facetFields.entrySet()) {
             ArrayList<Object> fields = (ArrayList<Object>) entry.getValue();
             String key = entry.getKey();
+            removeNullFacets(fields);
 
             if (key.equals("xmPrimaryDocType")) {
                 configureDocTypeFacets(fields);
@@ -316,9 +317,11 @@ public class SearchComponent extends CommonComponent {
                 }
                 facetField.put(FACET_ATTRIBUTE_URL, facetUrl);
             }
+
             if (key.equals("searchTab")) {
                 configureSearchTabFacets(fields, request);
             }
+
             if (key.equals(YEAR)) {
                 final ArrayList<Object> yearFacetList = configureYearFacets(fields);
                 ((ArrayList<Object>) entry.getValue()).clear();
@@ -374,6 +377,16 @@ public class SearchComponent extends CommonComponent {
         }
     }
 
+    private void removeNullFacets(ArrayList<Object> entry) {
+        Iterator<Object> iterable = entry.iterator();
+        while (iterable.hasNext()) {
+            LinkedHashMap<String, Object> facetField = (LinkedHashMap) iterable.next();
+            if (facetField.get(FACET_ATTRIBUTE_NAME).equals("null")) {
+                iterable.remove();
+            }
+        }
+    }
+
     /* Method for configuring the doctype facets, grouping + removing specific docTypes */
     private void configureDocTypeFacets(ArrayList<Object> entry) {
         groupPublicationFacets(entry);
@@ -388,14 +401,6 @@ public class SearchComponent extends CommonComponent {
     }
 
     private void configureSearchTabFacets(ArrayList<Object> entry, HstRequest request) {
-        Iterator<Object> iterable = entry.iterator();
-        while (iterable.hasNext()) {
-            LinkedHashMap<String, Object> facetField = (LinkedHashMap) iterable.next();
-            if (facetField.get(FACET_ATTRIBUTE_NAME).equals("null")) {
-                iterable.remove();
-            }
-        }
-
         if (entry.size() < 3) {
             addEmptySearchTabs(entry);
         }
