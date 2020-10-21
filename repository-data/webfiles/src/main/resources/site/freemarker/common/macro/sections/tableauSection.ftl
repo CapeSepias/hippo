@@ -4,6 +4,8 @@
 
 <#macro tableau section index>
 
+    <@hst.setBundle basename="tableau.lables"/>
+
     <#if section?? && section.url??>
         <@hst.headContribution>
             <script src="${section.tableauBase}javascripts/api/tableau-2.min.js"></script>
@@ -17,7 +19,7 @@
                 <img id="${divId}-placeholder" class="viz-wrapper-item" src="${section.placeholderImageLocation}" />
                 <div id="${divId}-loading" class="viz-wrapper-item">
                     <div class="viz-wrapper-loading">
-                        <span id="${divId}-loading-message"></span>
+                        <span id="${divId}-loading-message" class="viz-wrapper-loading-message"><@fmt.message key="loading-message"/></span>
                         <img id="${divId}-loading-icon" src="<@hst.webfile  path="images/loading-circle.gif"/>" alt="Loading data " />
                     </div>
                 </div>
@@ -26,11 +28,10 @@
             </#if>
         </div>
 
-        <@hst.setBundle basename="tableau.lables"/>
         <script type="text/javascript">
             var vizMessages = {
                 LOAD_ERROR: "<@fmt.message key="load-error"/>",
-                LOADING_MESSAGE: "<@fmt.message key="loading-message"/>",
+                LOADING_MESSAGE_LONGER: "<@fmt.message key="loading-message-longer"/>",
                 LOADING_FAILED_MESSAGE: "<@fmt.message key="loading-failed-message"/>"
             };
         </script>
@@ -126,7 +127,7 @@
                 } else {
                     if(!viz${index}Load && (Date.now() - viz${index}StartLoadTimeStart) > (viz${index}RetryAtempIntervales[0] * 1000)){
                         viz${index}StartLoadTimeStart += viz${index}RetryAtempIntervales.shift() * 1000;  <#-- Update for the next round -->
-                        _setRetryMessage();
+                        _setMessage(vizMessages.LOADING_MESSAGE_LONGER);
                         _load();
                     }
                 }
@@ -135,28 +136,19 @@
             function _fail(){
                 setTimeout(function(){
                     if(!viz${index}Load) {
-                        _setFailMessage();
+                        _setMessage(vizMessages.LOADING_FAILED_MESSAGE);
+                        var loading${index} = viz${index}Elements.loadingIcon();
+                        if(!!(loading${index})) {
+                            loading${index}.remove();
+                        }
                     }
                 }, 60000); <#-- Allow Tableau last atempt to load finish before showing the fail message. -->
             }
 
-            function _setRetryMessage() {
+            function _setMessage(message) {
                 var message${index} = viz${index}Elements.loadingMessage();
                 if(!!(message${index})) {
-                    message${index}.classList.add("fade-in-2");
-                    message${index}.innerHTML = vizMessages.LOADING_MESSAGE;
-                }
-            }
-
-            function _setFailMessage() {
-                var message${index} = viz${index}Elements.loadingMessage();
-                if(!!(message${index})) {
-                    message${index}.classList.add("fade-in-2");
-                    message${index}.innerHTML = vizMessages.LOADING_FAILED_MESSAGE;
-                }
-                var loading${index} = viz${index}Elements.loadingIcon();
-                if(!!(loading${index})) {
-                    loading${index}.remove();
+                    message${index}.innerHTML = message;
                 }
             }
 
