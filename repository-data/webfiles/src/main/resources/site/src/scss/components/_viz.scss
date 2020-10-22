@@ -22,7 +22,6 @@
         -ms-grid-row: 1;
         grid-column: 1/2;
         grid-row: 1;
-        z-index: 1;
     }
 
     img.viz-wrapper-item {
@@ -31,7 +30,7 @@
 
     &-loading {
         position: relative;
-
+        min-height: 3em;
         margin: 20px auto 0;
         border: 1px solid #005EB8;
         background-color: #FFFFFF;

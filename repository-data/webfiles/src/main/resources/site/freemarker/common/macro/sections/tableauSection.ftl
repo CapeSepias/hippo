@@ -94,9 +94,7 @@
                 containerDiv.classList.remove("hidden-viz");
                 if (Array.isArray(placeholderElements) && placeholderElements.length) {
                     placeholderElements.forEach(function (el) {
-                        if(el instanceof HTMLElement) {
-                            el.remove();
-                        }
+                        _remove(el);
                     });
                 }
             }
@@ -139,7 +137,7 @@
                         _setMessage(vizMessages.LOADING_FAILED_MESSAGE);
                         var loading${index} = viz${index}Elements.loadingIcon();
                         if(!!(loading${index})) {
-                            loading${index}.remove();
+                            _remove(loading${index});
                         }
                     }
                 }, 60000); <#-- Allow Tableau last atempt to load finish before showing the fail message. -->
@@ -154,6 +152,12 @@
 
             function _showLoadingError() {
                 viz${index}Elements.containerDiv().innerHTML = vizMessages.LOAD_ERROR;
+            }
+
+            function _remove(element) {
+                if(element instanceof HTMLElement) {
+                    element.parentNode.removeChild(element);
+                }
             }
         </script>
     </#if>
