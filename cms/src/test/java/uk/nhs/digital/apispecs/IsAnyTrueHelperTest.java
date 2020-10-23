@@ -1,7 +1,7 @@
 package uk.nhs.digital.apispecs;
 
-import static org.hamcrest.Matchers.instanceOf;
 import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.instanceOf;
 import static org.junit.Assert.assertThat;
 import static org.mockito.BDDMockito.then;
 import static org.mockito.MockitoAnnotations.initMocks;
@@ -63,7 +63,7 @@ public class IsAnyTrueHelperTest {
 
         } catch (Exception e) {
 
-            //then
+            // then
             assertThat("Exception in execution","Exception in IsAnyTrueHelper", is(e.getMessage()));
         }
     }
@@ -80,7 +80,7 @@ public class IsAnyTrueHelperTest {
 
         } catch (Exception e) {
 
-            //then
+            // then
             assertThat("Exception in execution","Exception in IsAnyTrueHelper", is(e.getMessage()));
         }
     }
@@ -97,7 +97,7 @@ public class IsAnyTrueHelperTest {
 
         } catch (Exception e) {
 
-            //then
+            // then
             assertThat("Exception in execution","Exception in IsAnyTrueHelper", is(e.getMessage()));
         }
     }

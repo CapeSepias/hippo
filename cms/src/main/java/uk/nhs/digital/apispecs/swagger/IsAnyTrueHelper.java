@@ -2,6 +2,7 @@ package uk.nhs.digital.apispecs.swagger;
 
 import com.github.jknack.handlebars.Helper;
 import com.github.jknack.handlebars.Options;
+import org.apache.commons.lang.Validate;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -15,7 +16,11 @@ public class IsAnyTrueHelper implements Helper<String> {
 
     @Override public Object apply(final String items, final Options options) throws IOException {
 
-        if (!isValid(options)) {
+        Validate.notEmpty(options.params,"Exception in IsAnyTrueHelper");
+        Validate.noNullElements(options.params,"Exception in IsAnyTrueHelper");
+        Validate.allElementsOfType(Arrays.asList(options.params), Boolean.class,"Exception in IsAnyTrueHelper");
+
+        if (!(options.params.length > 0)) {
 
             throw new RuntimeException("Exception in IsAnyTrueHelper");
         }
@@ -35,14 +40,5 @@ public class IsAnyTrueHelper implements Helper<String> {
         return Arrays.stream(Optional.ofNullable(options).get().params)
             .map(param -> (Boolean)param)
             .anyMatch(param -> param);
-    }
-
-    private Boolean isValid(Options options) {
-
-        if (options == null || options.params == null || (!(options.params.length > 0))) {
-            return false;
-        }
-
-       return Arrays.stream(options.params).allMatch(obj -> obj instanceof Boolean);
     }
 }
