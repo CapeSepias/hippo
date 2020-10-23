@@ -58,6 +58,21 @@ public class SchemaHelperTest {
     }
 
     @Test
+    public void rendersCompleteHierarchyOfSchemaObjectsAsHtml() {
+
+        // given
+        final String expectedSchemaHtml = readFrom("schemaObjectsMultiLevelHierarchy.html");
+
+        final ObjectSchema schemaObject = fromJsonFile("schemaObjectsMultiLevelHierarchy.json");
+
+        // when
+        final String actualHtmlSchema = schemaHelper.apply(schemaObject, null);
+
+        // then
+        assertThat("All 'simple' fields of Schema Object are rendered in HTML.", actualHtmlSchema, is(expectedSchemaHtml));
+    }
+
+    @Test
     public void doesNotRenderFieldsAbsentFromTheSpecification() {
 
         // given
