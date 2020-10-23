@@ -296,7 +296,9 @@ It supports the following security patterns:</p>
                                             <p></p>
                                             <br/>
 
-                                            <h2>Request</h2>
+
+                                                <h2>Request</h2>
+
 
                                                 <div class="httpparams">
                                                     <h3>Path parameters</h3>
@@ -311,15 +313,15 @@ It supports the following security patterns:</p>
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
-                                                            
-                                                            
-                                                            
+
+
+
                                                                                 <div>The patient's NHS Number. The primary identifier of a patient, unique within NHS England and Wales. Always 10 digits and must be a <a href="https://www.datadictionary.nhs.uk/data_dictionary/attributes/n/nhs/nhs_number_de.asp">valid NHS Number</a>.</div>
-                                                            
-                                                            
-                                                            
+
+
+
                                                                                 <div>Example: <code class="codeinline">9000000009</code></div>
-                                                            
+
                                                                         </div>
                                                                             <div class="httpparams__required">
                                                                                 Required
@@ -344,20 +346,20 @@ It supports the following security patterns:</p>
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
-                                                            
-                                                            
-                                                            
+
+
+
                                                                                 <div><p>A User Role ID (URID), also known as a User Role Profile ID (URPID), specifies the role the user is acting in.</p>
 <p>A URID belongs to a user (they are not generic) and a user may have more than one.</p>
 <p>Find out more about <a href="https://digital.nhs.uk/developer/user-restricted-restful-apis#user-completes-authentication-and-authorisation">User role ID</a></p>
 <p>Note: This parameter is required unless interacting with the Sandbox.</p>
 </div>
-                                                            
+
                                                                                 <div>Pattern: <code class="codeinline">/^[0-9]+$/</code></div>
-                                                            
-                                                            
+
+
                                                                                 <div>Example: <code class="codeinline">555021935107</code></div>
-                                                            
+
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -369,18 +371,18 @@ It supports the following security patterns:</p>
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
-                                                            
+
                                                                                 <code class="codeinline">(^Bearer\ [[:ascii:]]+$)</code>
-                                                            
-                                                            
+
+
                                                                                 <div><p>An OAuthV2 access token presented in Bearer format.</p>
 <p>Note: This parameter is required unless interacting with the Sandbox.</p>
 </div>
-                                                            
-                                                            
-                                                            
+
+
+
                                                                                 <div>Example: <code class="codeinline">Bearer g1112R_ccQ1Ebbb4gtHBP1aaaNM</code></div>
-                                                            
+
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -392,7 +394,8 @@ It supports the following security patterns:</p>
 
 
 
-                                            <h2>Response</h2>
+                                                    <h2>Response</h2>
+
                                                 <h3>HTTP status: 200</h3>
                                                 <div>Information successfully returned.</div>
 
@@ -409,18 +412,18 @@ It supports the following security patterns:</p>
                                                                         <div class="httpparams__description">
                                                                             <div>
                                                                                 <span class="httpparams__datatype">String</span>
-                                                                
-                                                                
-                                                                
+
+
+
                                                                                     <div><p>Record version identifier enclosed in quotes and preceded by 'W/'. For example, <code class="codeinline">W/&quot;2&quot;</code>.</p>
 <p>Corresponds to <code class="codeinline">meta.versionId</code> attribute in the patient resource body.</p>
 </div>
-                                                                
+
                                                                                     <div>Pattern: <code class="codeinline">/^W\/"[0-9]+"$/</code></div>
-                                                                
-                                                                
+
+
                                                                                     <div>Example: <code class="codeinline">W/"2"</code></div>
-                                                                
+
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -430,13 +433,13 @@ It supports the following security patterns:</p>
                                                     </div>
 
                                                         <h4>Body</h4>
-                                                    
-                                                    
+
+
                                                             <h5 class="body__contenttype">
                                                                 <span class="body__contenttype__label">Content type: </span>
                                                                 <span class="body__contenttype__value">application/fhir+json</span>
                                                             </h5>
-                                                    
+
                                                                 <div class="body__example__header">Example</div>
                                                                 <div><pre><code>{
   "address" : [ {
@@ -653,29 +656,24 @@ It supports the following security patterns:</p>
     "value" : "01632960587"
   } ]
 }</code></pre></div>
-                                                    
-                                                    
-                                                    
-                                                            <div class="body__schema__header">Schema</div>
-                                                            <p>
-                                                                To see the schema, open
-                                                                <a class="body__schema__trythisapi__link" onclick="tryEndpointNow('/Patients/get_patient')" onkeyup="return vjsu.onKeyUp(event)">Try this API</a>
-                                                                and select the 'Schema' tab.
-                                                            </p>
-                                                    
-                                                    
+
+
+
+
+
+
                                                 <h3>HTTP status: 400</h3>
                                                 <div>Invalid NHS number supplied.</div>
 
 
                                                         <h4>Body</h4>
-                                                    
-                                                    
+
+
                                                             <h5 class="body__contenttype">
                                                                 <span class="body__contenttype__label">Content type: </span>
                                                                 <span class="body__contenttype__value">application/fhir+json</span>
                                                             </h5>
-                                                    
+
                                                                 <div class="body__example__header">Example</div>
                                                                 <div><pre><code>{
   "resourceType" : "OperationOutcome",
@@ -692,29 +690,24 @@ It supports the following security patterns:</p>
     }
   } ]
 }</code></pre></div>
-                                                    
-                                                    
-                                                    
-                                                            <div class="body__schema__header">Schema</div>
-                                                            <p>
-                                                                To see the schema, open
-                                                                <a class="body__schema__trythisapi__link" onclick="tryEndpointNow('/Patients/get_patient')" onkeyup="return vjsu.onKeyUp(event)">Try this API</a>
-                                                                and select the 'Schema' tab.
-                                                            </p>
-                                                    
-                                                    
+
+
+
+
+
+
                                                 <h3>HTTP status: 404</h3>
                                                 <div>Patient not found.</div>
 
 
                                                         <h4>Body</h4>
-                                                    
-                                                    
+
+
                                                             <h5 class="body__contenttype">
                                                                 <span class="body__contenttype__label">Content type: </span>
                                                                 <span class="body__contenttype__value">application/fhir+json</span>
                                                             </h5>
-                                                    
+
                                                                 <div class="body__example__header">Example</div>
                                                                 <div><pre><code>{
   "resourceType" : "OperationOutcome",
@@ -731,17 +724,11 @@ It supports the following security patterns:</p>
     }
   } ]
 }</code></pre></div>
-                                                    
-                                                    
-                                                    
-                                                            <div class="body__schema__header">Schema</div>
-                                                            <p>
-                                                                To see the schema, open
-                                                                <a class="body__schema__trythisapi__link" onclick="tryEndpointNow('/Patients/get_patient')" onkeyup="return vjsu.onKeyUp(event)">Try this API</a>
-                                                                and select the 'Schema' tab.
-                                                            </p>
-                                                    
-                                                    
+
+
+
+
+
                                         </article>
                                     </div>
                                     <div id="api-Patients-searchPatient" class="article-section-with-sub-heading">
@@ -905,7 +892,9 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                             <p></p>
                                             <br/>
 
-                                            <h2>Request</h2>
+
+                                                <h2>Request</h2>
+
 
 
                                                 <div class="httpparams">
@@ -921,20 +910,20 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
-                                                            
-                                                            
-                                                            
+
+
+
                                                                                 <div><p>A User Role ID (URID), also known as a User Role Profile ID (URPID), specifies the role the user is acting in.</p>
 <p>A URID belongs to a user (they are not generic) and a user may have more than one.</p>
 <p>Find out more about <a href="https://digital.nhs.uk/developer/user-restricted-restful-apis#user-completes-authentication-and-authorisation">User role ID</a></p>
 <p>Note: This parameter is required unless interacting with the Sandbox.</p>
 </div>
-                                                            
+
                                                                                 <div>Pattern: <code class="codeinline">/^[0-9]+$/</code></div>
-                                                            
-                                                            
+
+
                                                                                 <div>Example: <code class="codeinline">555021935107</code></div>
-                                                            
+
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -946,18 +935,18 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
-                                                            
+
                                                                                 <code class="codeinline">(^Bearer\ [[:ascii:]]+$)</code>
-                                                            
-                                                            
+
+
                                                                                 <div><p>An OAuthV2 access token presented in Bearer format.</p>
 <p>Note: This parameter is required unless interacting with the Sandbox.</p>
 </div>
-                                                            
-                                                            
-                                                            
+
+
+
                                                                                 <div>Example: <code class="codeinline">Bearer g1112R_ccQ1Ebbb4gtHBP1aaaNM</code></div>
-                                                            
+
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -981,16 +970,16 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">Boolean</span>
-                                                            
-                                                            
+
+
                                                                                 <div>Default value: <code class="codeinline">false</code></div>
-                                                            
+
                                                                                 <div>The search only returns results where the <code class="codeinline">score</code> field is 1.0.</div>
-                                                            
-                                                            
-                                                            
+
+
+
                                                                                 <div>Example: <code class="codeinline">true</code></div>
-                                                            
+
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -1002,16 +991,16 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">Boolean</span>
-                                                            
-                                                            
+
+
                                                                                 <div>Default value: <code class="codeinline">false</code></div>
-                                                            
+
                                                                                 <div>The search looks for matches in historic information such as previous names and addresses.</div>
-                                                            
-                                                            
-                                                            
+
+
+
                                                                                 <div>Example: <code class="codeinline">true</code></div>
-                                                            
+
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -1023,16 +1012,16 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">Boolean</span>
-                                                            
-                                                            
+
+
                                                                                 <div>Default value: <code class="codeinline">false</code></div>
-                                                            
+
                                                                                 <div>A fuzzy search is performed, including checks for homophones and transposed names.</div>
-                                                            
-                                                            
-                                                            
+
+
+
                                                                                 <div>Example: <code class="codeinline">true</code></div>
-                                                            
+
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -1044,17 +1033,17 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">Integer</span>
-                                                            
+
                                                                                 <code class="codeinline">(int32)</code>
-                                                            
+
                                                                                 <div>Default value: <code class="codeinline">50</code></div>
-                                                            
+
                                                                                 <div>The maximum number of results to return between 1 and 50. The default is 50.</div>
-                                                            
-                                                            
-                                                            
+
+
+
                                                                                 <div>Example: <code class="codeinline">1</code></div>
-                                                            
+
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -1066,22 +1055,22 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
-                                                            
-                                                            
-                                                            
+
+
+
                                                                                 <div><p>The patient's family name (surname).</p>
 <p>Must be <a href="https://en.wikipedia.org/wiki/Percent-encoding">URL encoded</a>. For example a space must be represented by either <code class="codeinline">%20</code> or <code class="codeinline">+</code>.</p>
 </div>
-                                                            
-                                                            
-                                                            
+
+
+
                                                                                 <div><div class="httpparams__examples__header">Examples</div>
 <div class="httpparams__example__summary">Will also match Smythe if `_fuzzy-match` is specified.</div>
 <div class="httpparams__example__value"><code class="codeinline">Smith</code></div>
 <div class="httpparams__example__summary">Wildcards must contain at least two characters, this will match Smith, Smythe</div>
 <div class="httpparams__example__value"><code class="codeinline">Sm*t*</code></div>
 </div>
-                                                            
+
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -1093,17 +1082,17 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
-                                                            
-                                                            
-                                                            
+
+
+
                                                                                 <div><p>The patient's given name.</p>
 <p>Must be <a href="https://en.wikipedia.org/wiki/Percent-encoding">URL encoded</a>. For example a space must be represented by either <code class="codeinline">%20</code> or <code class="codeinline">+</code>.</p>
 </div>
-                                                            
-                                                            
-                                                            
+
+
+
                                                                                 <div>Example: <code class="codeinline">Jane</code></div>
-                                                            
+
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -1115,16 +1104,16 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
-                                                            
-                                                            
-                                                            
+
+
+
                                                                                 <div>Gender with which the patient most strongly identifies.</div>
-                                                            
-                                                            
+
+
                                                                                 <div>Allowed values: <code class="codeinline">male</code>, <code class="codeinline">female</code>, <code class="codeinline">other</code>, <code class="codeinline">unknown</code></div>
-                                                            
+
                                                                                 <div>Example: <code class="codeinline">female</code></div>
-                                                            
+
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -1136,13 +1125,13 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">array[String]</span>
-                                                            
-                                                            
-                                                            
+
+
+
                                                                                 <div>Date of birth in the format <code class="codeinline">&lt;eq|ge|le&gt;yyyy-mm-dd</code>. To specify a range, use <code class="codeinline">birthdate=geyyyy-mm-dd&amp;birthdate=leyyyy-mm-dd</code>.</div>
-                                                            
-                                                            
-                                                            
+
+
+
                                                                                 <div><div class="httpparams__examples__header">Examples</div>
 <div class="httpparams__example__description">Exact match date</div>
 <div class="httpparams__example__value"><code class="codeinline">eq2010-10-22</code></div>
@@ -1151,7 +1140,7 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
 <div class="httpparams__example__description">Less than or equals match, which matches 2010-10-22 or 2010-10-21</div>
 <div class="httpparams__example__value"><code class="codeinline">le2010-10-22</code></div>
 </div>
-                                                            
+
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -1163,14 +1152,14 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">date</span>
-                                                            
+
                                                                                 <code class="codeinline">(date)</code>
-                                                            
-                                                            
+
+
                                                                                 <div>Date of death in the format <code class="codeinline">&lt;eq|ge|le&gt;yyyy-mm-dd</code>. To specify a range, use <code class="codeinline">death-date=geyyyy-mm-dd&amp;death-date=leyyyy-mm-dd</code>.</div>
-                                                            
-                                                            
-                                                            
+
+
+
                                                                                 <div><div class="httpparams__examples__header">Examples</div>
 <div class="httpparams__example__description">Exact match date</div>
 <div class="httpparams__example__value"><code class="codeinline">eq2010-10-22</code></div>
@@ -1179,7 +1168,7 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
 <div class="httpparams__example__description">Less than or equals match, which matches 2010-10-22 or 2010-10-21</div>
 <div class="httpparams__example__value"><code class="codeinline">le2010-10-22</code></div>
 </div>
-                                                            
+
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -1191,22 +1180,22 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
-                                                            
-                                                            
-                                                            
+
+
+
                                                                                 <div><p>The postcode of any of the patient’s known addresses. White spaces in postcodes are not significant; that is, LS16AE and LS1 6AE will both match LS1 6AE.</p>
 <p>Must be <a href="https://en.wikipedia.org/wiki/Percent-encoding">URL encoded</a>. For example a space must be represented by either <code class="codeinline">%20</code> or <code class="codeinline">+</code>.</p>
 </div>
-                                                            
-                                                            
-                                                            
+
+
+
                                                                                 <div><div class="httpparams__examples__header">Examples</div>
 <div class="httpparams__example__summary">Spaces not important, would match LS16AE</div>
 <div class="httpparams__example__value"><code class="codeinline">LS1 6AE</code></div>
 <div class="httpparams__example__summary">Will match 'LS16AE', 'LS1 6AE' and 'LS1 6AB'</div>
 <div class="httpparams__example__value"><code class="codeinline">LS1*</code></div>
 </div>
-                                                            
+
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -1218,15 +1207,15 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
-                                                            
-                                                            
-                                                            
+
+
+
                                                                                 <div>The Organisation Data Service (ODS) code of the patient's registered GP practice.</div>
-                                                            
-                                                            
-                                                            
+
+
+
                                                                                 <div>Example: <code class="codeinline">Y00001</code></div>
-                                                            
+
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -1235,108 +1224,85 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
                                                     </table>
                                                 </div>
 
-                                            <h2>Response</h2>
+                                                    <h2>Response</h2>
+
                                                 <h3>HTTP status: 200</h3>
                                                 <div>A completed search, containing zero, one, or many matching patients.</div>
 
 
                                                         <h4>Body</h4>
-                                                    
-                                                    
+
+
                                                             <h5 class="body__contenttype">
                                                                 <span class="body__contenttype__label">Content type: </span>
                                                                 <span class="body__contenttype__value">application/render-no-example-where-none-present</span>
                                                             </h5>
-                                                    
-                                                    
-                                                    
-                                                    
-                                                            <div class="body__schema__header">Schema</div>
-                                                            <p>
-                                                                To see the schema, open
-                                                                <a class="body__schema__trythisapi__link" onclick="tryEndpointNow('/Patients/search_patient')" onkeyup="return vjsu.onKeyUp(event)">Try this API</a>
-                                                                and select the 'Schema' tab.
-                                                            </p>
-                                                    
-                                                    
+
+
+
+
+
+
                                                             <h5 class="body__contenttype">
                                                                 <span class="body__contenttype__label">Content type: </span>
                                                                 <span class="body__contenttype__value">application/render-examples-from-object-where-present-on-object-and-on-schema</span>
                                                             </h5>
-                                                    
-                                                    
-                                                    
+
+
+
                                                                 <div class="body__example__header">Examples</div>
-                                                    
+
                                                                 <div class="body__example__summary">example A summary</div>
-                                                    
+
                                                                 <div class="body__example__description">example A <code class="codeinline">description</code> - should render Markdown as HTML</div>
-                                                    
+
                                                                 <div><pre><code>{
   "example-value" : "example A value - should render as pretty-printed JSON"
 }</code></pre></div>
-                                                    
+
                                                                 <div class="body__example__summary">example B summary</div>
-                                                    
+
                                                                 <div class="body__example__description">example B <code class="codeinline">description</code> - should render Markdown as HTML</div>
-                                                    
+
                                                                 <div><pre><code>{
   "example-value" : "example B value - should render as pretty-printed JSON"
 }</code></pre></div>
-                                                    
-                                                            <div class="body__schema__header">Schema</div>
-                                                            <p>
-                                                                To see the schema, open
-                                                                <a class="body__schema__trythisapi__link" onclick="tryEndpointNow('/Patients/search_patient')" onkeyup="return vjsu.onKeyUp(event)">Try this API</a>
-                                                                and select the 'Schema' tab.
-                                                            </p>
-                                                    
-                                                    
+
+
+
                                                             <h5 class="body__contenttype">
                                                                 <span class="body__contenttype__label">Content type: </span>
                                                                 <span class="body__contenttype__value">application/render-example-from-object-where-present-on-object-and-on-schema</span>
                                                             </h5>
-                                                    
+
                                                                 <div class="body__example__header">Example</div>
                                                                 <div><pre><code>{
   "example-value" : "example on media object - should render, winning over the example in the schema"
 }</code></pre></div>
-                                                    
-                                                    
-                                                    
-                                                            <div class="body__schema__header">Schema</div>
-                                                            <p>
-                                                                To see the schema, open
-                                                                <a class="body__schema__trythisapi__link" onclick="tryEndpointNow('/Patients/search_patient')" onkeyup="return vjsu.onKeyUp(event)">Try this API</a>
-                                                                and select the 'Schema' tab.
-                                                            </p>
-                                                    
-                                                    
+
+
+
+
+
                                                             <h5 class="body__contenttype">
                                                                 <span class="body__contenttype__label">Content type: </span>
                                                                 <span class="body__contenttype__value">application/render-example-from-schema-where-none-present-on-object</span>
                                                             </h5>
-                                                    
-                                                    
+
+
                                                                         <div class="body__example__header">Example</div>
                                                                         <div><pre><code>{
   "example-value" : "example on schema - should render as pretty-printed JSON"
 }</code></pre></div>
-                                                    
-                                                    
-                                                            <div class="body__schema__header">Schema</div>
-                                                            <p>
-                                                                To see the schema, open
-                                                                <a class="body__schema__trythisapi__link" onclick="tryEndpointNow('/Patients/search_patient')" onkeyup="return vjsu.onKeyUp(event)">Try this API</a>
-                                                                and select the 'Schema' tab.
-                                                            </p>
-                                                    
-                                                    
+
+
+
+
                                                             <h5 class="body__contenttype">
                                                                 <span class="body__contenttype__label">Content type: </span>
                                                                 <span class="body__contenttype__value">application/fhir+json</span>
                                                             </h5>
-                                                    
+
                                                                 <div class="body__example__header">Example</div>
                                                                 <div><pre><code>{
   "resourceType" : "Bundle",
@@ -1491,36 +1457,31 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
     }
   } ]
 }</code></pre></div>
-                                                    
-                                                    
-                                                    
-                                                            <div class="body__schema__header">Schema</div>
-                                                            <p>
-                                                                To see the schema, open
-                                                                <a class="body__schema__trythisapi__link" onclick="tryEndpointNow('/Patients/search_patient')" onkeyup="return vjsu.onKeyUp(event)">Try this API</a>
-                                                                and select the 'Schema' tab.
-                                                            </p>
-                                                    
-                                                    
+
+
+
+
+
+
                                                 <h3>HTTP status: 400</h3>
                                                 <div>Invalid search paramaters supplied.</div>
 
 
                                                         <h4>Body</h4>
-                                                    
-                                                    
+
+
                                                             <h5 class="body__contenttype">
                                                                 <span class="body__contenttype__label">Content type: </span>
                                                                 <span class="body__contenttype__value">application/fhir+json</span>
                                                             </h5>
-                                                    
-                                                    
-                                                    
+
+
+
                                                                 <div class="body__example__header">Examples</div>
-                                                    
+
                                                                 <div class="body__example__summary">too few search params</div>
-                                                    
-                                                    
+
+
                                                                 <div><pre><code>{
   "resourceType" : "OperationOutcome",
   "issue" : [ {
@@ -1536,10 +1497,10 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
     }
   } ]
 }</code></pre></div>
-                                                    
+
                                                                 <div class="body__example__summary">Invalid combination of search parameters</div>
-                                                    
-                                                    
+
+
                                                                 <div><pre><code>{
   "resourceType" : "OperationOutcome",
   "issue" : [ {
@@ -1555,15 +1516,9 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
     }
   } ]
 }</code></pre></div>
-                                                    
-                                                            <div class="body__schema__header">Schema</div>
-                                                            <p>
-                                                                To see the schema, open
-                                                                <a class="body__schema__trythisapi__link" onclick="tryEndpointNow('/Patients/search_patient')" onkeyup="return vjsu.onKeyUp(event)">Try this API</a>
-                                                                and select the 'Schema' tab.
-                                                            </p>
-                                                    
-                                                    
+
+
+
                                         </article>
                                     </div>
                                     <div id="api-Patients-updatePatientPartial" class="article-section-with-sub-heading">
@@ -1756,7 +1711,7 @@ The following patch is allowed:</p>
 <p>An example of a list item removal using the whole object would be:</p>
 <pre><code class="language-json">{
     &quot;patches&quot;: [
-      { 
+      {
             &quot;op&quot;: &quot;test&quot;,
             &quot;path&quot;: &quot;/name/0&quot;,
             &quot;value&quot;: {
@@ -2098,7 +2053,9 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
                                             <p></p>
                                             <br/>
 
-                                            <h2>Request</h2>
+
+                                                <h2>Request</h2>
+
 
                                                 <div class="httpparams">
                                                     <h3>Path parameters</h3>
@@ -2113,15 +2070,15 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
-                                                            
-                                                            
-                                                            
+
+
+
                                                                                 <div>The patient's NHS Number. The primary identifier of a patient, unique within NHS England and Wales. Always 10 digits and must be a <a href="https://www.datadictionary.nhs.uk/data_dictionary/attributes/n/nhs/nhs_number_de.asp">valid NHS Number</a>.</div>
-                                                            
-                                                            
-                                                            
+
+
+
                                                                                 <div>Example: <code class="codeinline">9000000009</code></div>
-                                                            
+
                                                                         </div>
                                                                             <div class="httpparams__required">
                                                                                 Required
@@ -2146,18 +2103,18 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
-                                                            
-                                                            
-                                                            
+
+
+
                                                                                 <div><p>Latest known version identifier enclosed in quotes preceded by <code class="codeinline">W/</code>.</p>
 <p>Send the value of this resource's <code class="codeinline">ETag</code> response header (or <code class="codeinline">meta.versionId</code> property) as received.</p>
 </div>
-                                                            
+
                                                                                 <div>Pattern: <code class="codeinline">/^W\/"[0-9]+"$/</code></div>
-                                                            
-                                                            
+
+
                                                                                 <div>Example: <code class="codeinline">W/"2"</code></div>
-                                                            
+
                                                                         </div>
                                                                             <div class="httpparams__required">
                                                                                 Required
@@ -2172,20 +2129,20 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
-                                                            
-                                                            
-                                                            
+
+
+
                                                                                 <div><p>A User Role ID (URID), also known as a User Role Profile ID (URPID), specifies the role the user is acting in.</p>
 <p>A URID belongs to a user (they are not generic) and a user may have more than one.</p>
 <p>Find out more about <a href="https://digital.nhs.uk/developer/user-restricted-restful-apis#user-completes-authentication-and-authorisation">User role ID</a></p>
 <p>Note: This parameter is required unless interacting with the Sandbox.</p>
 </div>
-                                                            
+
                                                                                 <div>Pattern: <code class="codeinline">/^[0-9]+$/</code></div>
-                                                            
-                                                            
+
+
                                                                                 <div>Example: <code class="codeinline">555021935107</code></div>
-                                                            
+
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -2197,18 +2154,18 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
-                                                            
+
                                                                                 <code class="codeinline">(^Bearer\ [[:ascii:]]+$)</code>
-                                                            
-                                                            
+
+
                                                                                 <div><p>An OAuthV2 access token presented in Bearer format.</p>
 <p>Note: This parameter is required unless interacting with the Sandbox.</p>
 </div>
-                                                            
-                                                            
-                                                            
+
+
+
                                                                                 <div>Example: <code class="codeinline">Bearer g1112R_ccQ1Ebbb4gtHBP1aaaNM</code></div>
-                                                            
+
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -2220,109 +2177,85 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
                                                 <div class="httpparams">
                                                     <h3>Body</h3>
                                                     <div class="httpparams__required">Required</div>
-                                                        
-                                                        
+
+
                                                                 <h5 class="body__contenttype">
                                                                     <span class="body__contenttype__label">Content type: </span>
                                                                     <span class="body__contenttype__value">application/render-no-example-where-none-present</span>
                                                                 </h5>
-                                                        
-                                                        
-                                                        
-                                                        
-                                                                <div class="body__schema__header">Schema</div>
-                                                                <p>
-                                                                    To see the schema, open
-                                                                    <a class="body__schema__trythisapi__link" onclick="tryEndpointNow('/Patients/update_patient_partial')" onkeyup="return vjsu.onKeyUp(event)">Try this API</a>
-                                                                    and select the 'Schema' tab.
-                                                                </p>
-                                                        
-                                                        
+
+
+
+
+
+
                                                                 <h5 class="body__contenttype">
                                                                     <span class="body__contenttype__label">Content type: </span>
                                                                     <span class="body__contenttype__value">application/render-examples-from-object-where-present-on-object-and-on-schema</span>
                                                                 </h5>
-                                                        
-                                                        
-                                                        
+
+
+
                                                                     <div class="body__example__header">Examples</div>
-                                                        
+
                                                                     <div class="body__example__summary">example A summary</div>
-                                                        
+
                                                                     <div class="body__example__description">example A <code class="codeinline">description</code> - should render Markdown as HTML</div>
-                                                        
+
                                                                     <div><pre><code>{
   "example-value" : "example A value - should render as pretty-printed JSON"
 }</code></pre></div>
-                                                        
+
                                                                     <div class="body__example__summary">example B summary</div>
-                                                        
+
                                                                     <div class="body__example__description">example B <code class="codeinline">description</code> - should render Markdown as HTML</div>
-                                                        
+
                                                                     <div><pre><code>{
   "example-value" : "example B value - should render as pretty-printed JSON"
 }</code></pre></div>
-                                                        
-                                                                <div class="body__schema__header">Schema</div>
-                                                                <p>
-                                                                    To see the schema, open
-                                                                    <a class="body__schema__trythisapi__link" onclick="tryEndpointNow('/Patients/update_patient_partial')" onkeyup="return vjsu.onKeyUp(event)">Try this API</a>
-                                                                    and select the 'Schema' tab.
-                                                                </p>
-                                                        
-                                                        
+
+
+
                                                                 <h5 class="body__contenttype">
                                                                     <span class="body__contenttype__label">Content type: </span>
                                                                     <span class="body__contenttype__value">application/render-example-from-object-where-present-on-object-and-on-schema</span>
                                                                 </h5>
-                                                        
+
                                                                     <div class="body__example__header">Example</div>
                                                                     <div><pre><code>{
   "example-value" : "example on media object - should render, winning over the example in the schema"
 }</code></pre></div>
-                                                        
-                                                        
-                                                        
-                                                                <div class="body__schema__header">Schema</div>
-                                                                <p>
-                                                                    To see the schema, open
-                                                                    <a class="body__schema__trythisapi__link" onclick="tryEndpointNow('/Patients/update_patient_partial')" onkeyup="return vjsu.onKeyUp(event)">Try this API</a>
-                                                                    and select the 'Schema' tab.
-                                                                </p>
-                                                        
-                                                        
+
+
+
+
+
                                                                 <h5 class="body__contenttype">
                                                                     <span class="body__contenttype__label">Content type: </span>
                                                                     <span class="body__contenttype__value">application/render-example-from-schema-where-none-present-on-object</span>
                                                                 </h5>
-                                                        
-                                                        
+
+
                                                                             <div class="body__example__header">Example</div>
                                                                             <div><pre><code>{
   "example-value" : "example on schema - should render as pretty-printed JSON"
 }</code></pre></div>
-                                                        
-                                                        
-                                                                <div class="body__schema__header">Schema</div>
-                                                                <p>
-                                                                    To see the schema, open
-                                                                    <a class="body__schema__trythisapi__link" onclick="tryEndpointNow('/Patients/update_patient_partial')" onkeyup="return vjsu.onKeyUp(event)">Try this API</a>
-                                                                    and select the 'Schema' tab.
-                                                                </p>
-                                                        
-                                                        
+
+
+
+
                                                                 <h5 class="body__contenttype">
                                                                     <span class="body__contenttype__label">Content type: </span>
                                                                     <span class="body__contenttype__value">application/json</span>
                                                                 </h5>
-                                                        
-                                                        
-                                                        
+
+
+
                                                                     <div class="body__example__header">Examples</div>
-                                                        
+
                                                                     <div class="body__example__summary">Add a new single item (deceasedDateTime) to the patient</div>
-                                                        
-                                                        
+
+
                                                                     <div><pre><code>{
   "patches" : [ {
     "op" : "add",
@@ -2330,10 +2263,10 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
     "value" : "2010-10-22T00:00:00+00:00"
   } ]
 }</code></pre></div>
-                                                        
+
                                                                     <div class="body__example__summary">Add a new list item (name) to the patient</div>
-                                                        
-                                                        
+
+
                                                                     <div><pre><code>{
   "patches" : [ {
     "op" : "add",
@@ -2350,10 +2283,10 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
     }
   } ]
 }</code></pre></div>
-                                                        
+
                                                                     <div class="body__example__summary">Add a an extension (nominated pharmacy) to the Patient</div>
-                                                        
-                                                        
+
+
                                                                     <div><pre><code>{
   "patches" : [ {
     "op" : "add",
@@ -2374,10 +2307,10 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
     }
   } ]
 }</code></pre></div>
-                                                        
+
                                                                     <div class="body__example__summary">Update the simple item (gender)</div>
-                                                        
-                                                        
+
+
                                                                     <div><pre><code>{
   "patches" : [ {
     "op" : "replace",
@@ -2385,10 +2318,10 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
     "value" : "male"
   } ]
 }</code></pre></div>
-                                                        
+
                                                                     <div class="body__example__summary">Update specific fields on a list item (address)</div>
-                                                        
-                                                        
+
+
                                                                     <div><pre><code>{
   "patches" : [ {
     "op" : "replace",
@@ -2400,10 +2333,10 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
     "value" : "LS1 4BU"
   } ]
 }</code></pre></div>
-                                                        
+
                                                                     <div class="body__example__summary">Update whole object on a list item (address)</div>
-                                                        
-                                                        
+
+
                                                                     <div><pre><code>{
   "patches" : [ {
     "op" : "replace",
@@ -2433,10 +2366,10 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
     }
   } ]
 }</code></pre></div>
-                                                        
+
                                                                     <div class="body__example__summary">Update an extension (death notification)</div>
-                                                        
-                                                        
+
+
                                                                     <div><pre><code>{
   "patches" : [ {
     "op" : "replace",
@@ -2457,20 +2390,20 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
     }
   } ]
 }</code></pre></div>
-                                                        
+
                                                                     <div class="body__example__summary">Remove a single item (gender) no longer in use</div>
-                                                        
-                                                        
+
+
                                                                     <div><pre><code>{
   "patches" : [ {
     "op" : "remove",
     "path" : "/gender"
   } ]
 }</code></pre></div>
-                                                        
+
                                                                     <div class="body__example__summary">Remove a list item (name) no longer in use, using test pointing to the name items id</div>
-                                                        
-                                                        
+
+
                                                                     <div><pre><code>{
   "patches" : [ {
     "op" : "test",
@@ -2481,10 +2414,10 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
     "path" : "/name/0"
   } ]
 }</code></pre></div>
-                                                        
+
                                                                     <div class="body__example__summary">Remove a list item (name) no longer in use, using test pointing to the name object</div>
-                                                        
-                                                        
+
+
                                                                     <div><pre><code>{
   "patches" : [ {
     "op" : "test",
@@ -2506,10 +2439,10 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
     "path" : "/name/0"
   } ]
 }</code></pre></div>
-                                                        
+
                                                                     <div class="body__example__summary">Remove an extension (dispensing doctor pharmacy) no longer in use</div>
-                                                        
-                                                        
+
+
                                                                     <div><pre><code>{
   "patches" : [ {
     "op" : "test",
@@ -2520,20 +2453,15 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
     "path" : "/extension/1"
   } ]
 }</code></pre></div>
-                                                        
-                                                                <div class="body__schema__header">Schema</div>
-                                                                <p>
-                                                                    To see the schema, open
-                                                                    <a class="body__schema__trythisapi__link" onclick="tryEndpointNow('/Patients/update_patient_partial')" onkeyup="return vjsu.onKeyUp(event)">Try this API</a>
-                                                                    and select the 'Schema' tab.
-                                                                </p>
-                                                        
-                                                        
+
+
+
                                                 </div>
 
 
 
-                                            <h2>Response</h2>
+                                                    <h2>Response</h2>
+
                                                 <h3>HTTP status: 202</h3>
                                                 <div><p>The patch was syntactically correct and was accepted.</p>
 <p>A polling location will be returned in the <code class="codeinline">Content-Location</code> header and the polling interval in the <code class="codeinline">Retry-After</code> header.</p>
@@ -2554,15 +2482,15 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
                                                                         <div class="httpparams__description">
                                                                             <div>
                                                                                 <span class="httpparams__datatype">String</span>
-                                                                
-                                                                
-                                                                
+
+
+
                                                                                     <div>Polling location of the update</div>
-                                                                
-                                                                
-                                                                
+
+
+
                                                                                     <div>Example: <code class="codeinline">/Polling/20200522091633363041_461139_1524772598</code></div>
-                                                                
+
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -2574,15 +2502,15 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
                                                                         <div class="httpparams__description">
                                                                             <div>
                                                                                 <span class="httpparams__datatype">String</span>
-                                                                
-                                                                
-                                                                
+
+
+
                                                                                     <div>Time to wait between polls in milliseconds</div>
-                                                                
-                                                                
-                                                                
+
+
+
                                                                                     <div>Example: <code class="codeinline">100</code></div>
-                                                                
+
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -2591,27 +2519,28 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
                                                         </table>
                                                     </div>
 
-                                                    
-                                                    
+
+
+
                                                 <h3>HTTP status: 400</h3>
                                                 <div>Client error.</div>
 
 
                                                         <h4>Body</h4>
-                                                    
-                                                    
+
+
                                                             <h5 class="body__contenttype">
                                                                 <span class="body__contenttype__label">Content type: </span>
                                                                 <span class="body__contenttype__value">application/fhir+json</span>
                                                             </h5>
-                                                    
-                                                    
-                                                    
+
+
+
                                                                 <div class="body__example__header">Examples</div>
-                                                    
+
                                                                 <div class="body__example__summary">Invalid NHS number supplied</div>
-                                                    
-                                                    
+
+
                                                                 <div><pre><code>{
   "resourceType" : "OperationOutcome",
   "issue" : [ {
@@ -2627,10 +2556,10 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
     }
   } ]
 }</code></pre></div>
-                                                    
+
                                                                 <div class="body__example__summary">No patches submitted</div>
-                                                    
-                                                    
+
+
                                                                 <div><pre><code>{
   "resourceType" : "OperationOutcome",
   "issue" : [ {
@@ -2646,10 +2575,10 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
     }
   } ]
 }</code></pre></div>
-                                                    
+
                                                                 <div class="body__example__summary">Invalid patch operation(s)</div>
-                                                    
-                                                    
+
+
                                                                 <div><pre><code>{
   "resourceType" : "OperationOutcome",
   "issue" : [ {
@@ -2665,15 +2594,10 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
     }
   } ]
 }</code></pre></div>
-                                                    
-                                                            <div class="body__schema__header">Schema</div>
-                                                            <p>
-                                                                To see the schema, open
-                                                                <a class="body__schema__trythisapi__link" onclick="tryEndpointNow('/Patients/update_patient_partial')" onkeyup="return vjsu.onKeyUp(event)">Try this API</a>
-                                                                and select the 'Schema' tab.
-                                                            </p>
-                                                    
-                                                    
+
+
+
+
                                                 <h3>HTTP status: 412</h3>
                                                 <div><p>Precondition failed.</p>
 <p>The version identifier submitted in the <code class="codeinline">If-Match</code> header was not the latest version of the resource.</p>
@@ -2681,20 +2605,20 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
 
 
                                                         <h4>Body</h4>
-                                                    
-                                                    
+
+
                                                             <h5 class="body__contenttype">
                                                                 <span class="body__contenttype__label">Content type: </span>
                                                                 <span class="body__contenttype__value">application/fhir+json</span>
                                                             </h5>
-                                                    
-                                                    
-                                                    
+
+
+
                                                                 <div class="body__example__header">Examples</div>
-                                                    
+
                                                                 <div class="body__example__summary">Invalid If-Match header</div>
-                                                    
-                                                    
+
+
                                                                 <div><pre><code>{
   "resourceType" : "OperationOutcome",
   "issue" : [ {
@@ -2710,10 +2634,10 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
     }
   } ]
 }</code></pre></div>
-                                                    
+
                                                                 <div class="body__example__summary">Missing If-Match header</div>
-                                                    
-                                                    
+
+
                                                                 <div><pre><code>{
   "resourceType" : "OperationOutcome",
   "issue" : [ {
@@ -2729,15 +2653,9 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
     }
   } ]
 }</code></pre></div>
-                                                    
-                                                            <div class="body__schema__header">Schema</div>
-                                                            <p>
-                                                                To see the schema, open
-                                                                <a class="body__schema__trythisapi__link" onclick="tryEndpointNow('/Patients/update_patient_partial')" onkeyup="return vjsu.onKeyUp(event)">Try this API</a>
-                                                                and select the 'Schema' tab.
-                                                            </p>
-                                                    
-                                                    
+
+
+
                                         </article>
                                     </div>
                     <div id="api-Polling" class="article-section">
@@ -2795,7 +2713,9 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
                                             <p></p>
                                             <br/>
 
-                                            <h2>Request</h2>
+
+                                                <h2>Request</h2>
+
 
                                                 <div class="httpparams">
                                                     <h3>Path parameters</h3>
@@ -2810,15 +2730,15 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
-                                                            
-                                                            
-                                                            
+
+
+
                                                                                 <div>The message ID of the accepted update that needs to be submitted to confirm the resource a successfully updated.</div>
-                                                            
-                                                            
-                                                            
+
+
+
                                                                                 <div>Example: <code class="codeinline">20200522091633363041000001</code></div>
-                                                            
+
                                                                         </div>
                                                                             <div class="httpparams__required">
                                                                                 Required
@@ -2843,20 +2763,20 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
-                                                            
-                                                            
-                                                            
+
+
+
                                                                                 <div><p>A User Role ID (URID), also known as a User Role Profile ID (URPID), specifies the role the user is acting in.</p>
 <p>A URID belongs to a user (they are not generic) and a user may have more than one.</p>
 <p>Find out more about <a href="https://digital.nhs.uk/developer/user-restricted-restful-apis#user-completes-authentication-and-authorisation">User role ID</a></p>
 <p>Note: This parameter is required unless interacting with the Sandbox.</p>
 </div>
-                                                            
+
                                                                                 <div>Pattern: <code class="codeinline">/^[0-9]+$/</code></div>
-                                                            
-                                                            
+
+
                                                                                 <div>Example: <code class="codeinline">555021935107</code></div>
-                                                            
+
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -2868,18 +2788,18 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype"></span>
-                                                            
+
                                                                                 <code class="codeinline">(^Bearer\ [[:ascii:]]+$)</code>
-                                                            
-                                                            
+
+
                                                                                 <div><p>An OAuthV2 access token presented in Bearer format.</p>
 <p>Note: This parameter is required unless interacting with the Sandbox.</p>
 </div>
-                                                            
-                                                            
-                                                            
+
+
+
                                                                                 <div>Example: <code class="codeinline">Bearer g1112R_ccQ1Ebbb4gtHBP1aaaNM</code></div>
-                                                            
+
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -2891,7 +2811,8 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
 
 
 
-                                            <h2>Response</h2>
+                                                    <h2>Response</h2>
+
                                                 <h3>HTTP status: 200</h3>
                                                 <div>Patient updated.</div>
 
@@ -2908,18 +2829,18 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
                                                                         <div class="httpparams__description">
                                                                             <div>
                                                                                 <span class="httpparams__datatype">String</span>
-                                                                
-                                                                
-                                                                
+
+
+
                                                                                     <div><p>Record version identifier enclosed in quotes and preceded by 'W/'. For example, <code class="codeinline">W/&quot;2&quot;</code>.</p>
 <p>Corresponds to <code class="codeinline">meta.versionId</code> attribute in the patient resource body.</p>
 </div>
-                                                                
+
                                                                                     <div>Pattern: <code class="codeinline">/^W\/"[0-9]+"$/</code></div>
-                                                                
-                                                                
+
+
                                                                                     <div>Example: <code class="codeinline">W/"2"</code></div>
-                                                                
+
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -2929,43 +2850,38 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
                                                     </div>
 
                                                         <h4>Body</h4>
-                                                    
-                                                    
+
+
                                                             <h5 class="body__contenttype">
                                                                 <span class="body__contenttype__label">Content type: </span>
                                                                 <span class="body__contenttype__value">application/fhir+json</span>
                                                             </h5>
-                                                    
-                                                    
-                                                    
-                                                    
-                                                            <div class="body__schema__header">Schema</div>
-                                                            <p>
-                                                                To see the schema, open
-                                                                <a class="body__schema__trythisapi__link" onclick="tryEndpointNow('/Polling/polling')" onkeyup="return vjsu.onKeyUp(event)">Try this API</a>
-                                                                and select the 'Schema' tab.
-                                                            </p>
-                                                    
-                                                    
+
+
+
+
+
+
+
                                                 <h3>HTTP status: 400</h3>
                                                 <div>Client error after the patch was accepted and patient was not updated.</div>
 
 
                                                         <h4>Body</h4>
-                                                    
-                                                    
+
+
                                                             <h5 class="body__contenttype">
                                                                 <span class="body__contenttype__label">Content type: </span>
                                                                 <span class="body__contenttype__value">application/fhir+json</span>
                                                             </h5>
-                                                    
-                                                    
-                                                    
+
+
+
                                                                 <div class="body__example__header">Examples</div>
-                                                    
+
                                                                 <div class="body__example__summary">Business rule failure; start date was after the end date.</div>
-                                                    
-                                                    
+
+
                                                                 <div><pre><code>{
   "resourceType" : "OperationOutcome",
   "issue" : [ {
@@ -2981,34 +2897,29 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
     }
   } ]
 }</code></pre></div>
-                                                    
-                                                            <div class="body__schema__header">Schema</div>
-                                                            <p>
-                                                                To see the schema, open
-                                                                <a class="body__schema__trythisapi__link" onclick="tryEndpointNow('/Polling/polling')" onkeyup="return vjsu.onKeyUp(event)">Try this API</a>
-                                                                and select the 'Schema' tab.
-                                                            </p>
-                                                    
-                                                    
+
+
+
+
                                                 <h3>HTTP status: 403</h3>
                                                 <div>Part of your update could not be allowed as the change was forbidden.</div>
 
 
                                                         <h4>Body</h4>
-                                                    
-                                                    
+
+
                                                             <h5 class="body__contenttype">
                                                                 <span class="body__contenttype__label">Content type: </span>
                                                                 <span class="body__contenttype__value">application/fhir+json</span>
                                                             </h5>
-                                                    
-                                                    
-                                                    
+
+
+
                                                                 <div class="body__example__header">Examples</div>
-                                                    
+
                                                                 <div class="body__example__summary">Date of death cannot be removed once it has been set.</div>
-                                                    
-                                                    
+
+
                                                                 <div><pre><code>{
   "resourceType" : "OperationOutcome",
   "issue" : [ {
@@ -3024,27 +2935,22 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
     }
   } ]
 }</code></pre></div>
-                                                    
-                                                            <div class="body__schema__header">Schema</div>
-                                                            <p>
-                                                                To see the schema, open
-                                                                <a class="body__schema__trythisapi__link" onclick="tryEndpointNow('/Polling/polling')" onkeyup="return vjsu.onKeyUp(event)">Try this API</a>
-                                                                and select the 'Schema' tab.
-                                                            </p>
-                                                    
-                                                    
+
+
+
+
                                                 <h3>HTTP status: 404</h3>
                                                 <div>The message ID not found or you did not have permission to poll for that message.</div>
 
 
                                                         <h4>Body</h4>
-                                                    
-                                                    
+
+
                                                             <h5 class="body__contenttype">
                                                                 <span class="body__contenttype__label">Content type: </span>
                                                                 <span class="body__contenttype__value">application/fhir+json</span>
                                                             </h5>
-                                                    
+
                                                                 <div class="body__example__header">Example</div>
                                                                 <div><pre><code>{
   "resourceType" : "OperationOutcome",
@@ -3061,17 +2967,12 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
     }
   } ]
 }</code></pre></div>
-                                                    
-                                                    
-                                                    
-                                                            <div class="body__schema__header">Schema</div>
-                                                            <p>
-                                                                To see the schema, open
-                                                                <a class="body__schema__trythisapi__link" onclick="tryEndpointNow('/Polling/polling')" onkeyup="return vjsu.onKeyUp(event)">Try this API</a>
-                                                                and select the 'Schema' tab.
-                                                            </p>
-                                                    
-                                                    
+
+
+
+
+
+
                                                 <h3>HTTP status: 409</h3>
                                                 <div><p>Version Conflict.</p>
 <p>The version identifier submitted in the <code class="codeinline">If-Match</code> header was not the latest version of the resource.</p>
@@ -3079,20 +2980,20 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
 
 
                                                         <h4>Body</h4>
-                                                    
-                                                    
+
+
                                                             <h5 class="body__contenttype">
                                                                 <span class="body__contenttype__label">Content type: </span>
                                                                 <span class="body__contenttype__value">application/fhir+json</span>
                                                             </h5>
-                                                    
-                                                    
-                                                    
+
+
+
                                                                 <div class="body__example__header">Examples</div>
-                                                    
+
                                                                 <div class="body__example__summary">Version mis-match</div>
-                                                    
-                                                    
+
+
                                                                 <div><pre><code>{
   "resourceType" : "OperationOutcome",
   "issue" : [ {
@@ -3108,15 +3009,10 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
     }
   } ]
 }</code></pre></div>
-                                                    
-                                                            <div class="body__schema__header">Schema</div>
-                                                            <p>
-                                                                To see the schema, open
-                                                                <a class="body__schema__trythisapi__link" onclick="tryEndpointNow('/Polling/polling')" onkeyup="return vjsu.onKeyUp(event)">Try this API</a>
-                                                                and select the 'Schema' tab.
-                                                            </p>
-                                                    
-                                                    
+
+
+
+
                                                 <h3>HTTP status: 422</h3>
                                                 <div><p>The polling message ID was found however the processing of the request failed in an unexpected way or was cancelled, so the update failed.</p>
 <p>Please raise these occurrences with our team (via https://digital.nhs.uk/developer/help-and-support) so we can investigate the issue. When raising, quote the message ID you were polling for.</p>
@@ -3124,13 +3020,13 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
 
 
                                                         <h4>Body</h4>
-                                                    
-                                                    
+
+
                                                             <h5 class="body__contenttype">
                                                                 <span class="body__contenttype__label">Content type: </span>
                                                                 <span class="body__contenttype__value">application/fhir+json</span>
                                                             </h5>
-                                                    
+
                                                                 <div class="body__example__header">Example</div>
                                                                 <div><pre><code>{
   "resourceType" : "OperationOutcome",
@@ -3147,17 +3043,11 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
     }
   } ]
 }</code></pre></div>
-                                                    
-                                                    
-                                                    
-                                                            <div class="body__schema__header">Schema</div>
-                                                            <p>
-                                                                To see the schema, open
-                                                                <a class="body__schema__trythisapi__link" onclick="tryEndpointNow('/Polling/polling')" onkeyup="return vjsu.onKeyUp(event)">Try this API</a>
-                                                                and select the 'Schema' tab.
-                                                            </p>
-                                                    
-                                                    
+
+
+
+
+
                                         </article>
                                     </div>
                     <div id="api-Relatedperson" class="article-section">
@@ -3213,7 +3103,9 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
                                             <p></p>
                                             <br/>
 
-                                            <h2>Request</h2>
+
+                                                <h2>Request</h2>
+
 
                                                 <div class="httpparams">
                                                     <h3>Path parameters</h3>
@@ -3228,15 +3120,15 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
-                                                            
-                                                            
-                                                            
+
+
+
                                                                                 <div>The patient's NHS Number. The primary identifier of a patient, unique within NHS England and Wales. Always 10 digits and must be a <a href="https://www.datadictionary.nhs.uk/data_dictionary/attributes/n/nhs/nhs_number_de.asp">valid NHS Number</a>.</div>
-                                                            
-                                                            
-                                                            
+
+
+
                                                                                 <div>Example: <code class="codeinline">9000000009</code></div>
-                                                            
+
                                                                         </div>
                                                                             <div class="httpparams__required">
                                                                                 Required
@@ -3261,20 +3153,20 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
-                                                            
-                                                            
-                                                            
+
+
+
                                                                                 <div><p>A User Role ID (URID), also known as a User Role Profile ID (URPID), specifies the role the user is acting in.</p>
 <p>A URID belongs to a user (they are not generic) and a user may have more than one.</p>
 <p>Find out more about <a href="https://digital.nhs.uk/developer/user-restricted-restful-apis#user-completes-authentication-and-authorisation">User role ID</a></p>
 <p>Note: This parameter is required unless interacting with the Sandbox.</p>
 </div>
-                                                            
+
                                                                                 <div>Pattern: <code class="codeinline">/^[0-9]+$/</code></div>
-                                                            
-                                                            
+
+
                                                                                 <div>Example: <code class="codeinline">555021935107</code></div>
-                                                            
+
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -3286,18 +3178,18 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
                                                                     <div class="httpparams__description">
                                                                         <div>
                                                                             <span class="httpparams__datatype">String</span>
-                                                            
+
                                                                                 <code class="codeinline">(^Bearer\ [[:ascii:]]+$)</code>
-                                                            
-                                                            
+
+
                                                                                 <div><p>An OAuthV2 access token presented in Bearer format.</p>
 <p>Note: This parameter is required unless interacting with the Sandbox.</p>
 </div>
-                                                            
-                                                            
-                                                            
+
+
+
                                                                                 <div>Example: <code class="codeinline">Bearer g1112R_ccQ1Ebbb4gtHBP1aaaNM</code></div>
-                                                            
+
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -3309,7 +3201,8 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
 
 
 
-                                            <h2>Response</h2>
+                                                    <h2>Response</h2>
+
                                                 <h3>HTTP status: 200</h3>
                                                 <div>Information successfully returned.</div>
 
@@ -3326,18 +3219,18 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
                                                                         <div class="httpparams__description">
                                                                             <div>
                                                                                 <span class="httpparams__datatype">String</span>
-                                                                
-                                                                
-                                                                
+
+
+
                                                                                     <div><p>Record version identifier enclosed in quotes and preceded by 'W/'. For example, <code class="codeinline">W/&quot;2&quot;</code>.</p>
 <p>Corresponds to <code class="codeinline">meta.versionId</code> attribute in the patient resource body.</p>
 </div>
-                                                                
+
                                                                                     <div>Pattern: <code class="codeinline">/^W\/"[0-9]+"$/</code></div>
-                                                                
-                                                                
+
+
                                                                                     <div>Example: <code class="codeinline">W/"2"</code></div>
-                                                                
+
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -3347,13 +3240,13 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
                                                     </div>
 
                                                         <h4>Body</h4>
-                                                    
-                                                    
+
+
                                                             <h5 class="body__contenttype">
                                                                 <span class="body__contenttype__label">Content type: </span>
                                                                 <span class="body__contenttype__value">application/fhir+json</span>
                                                             </h5>
-                                                    
+
                                                                 <div class="body__example__header">Example</div>
                                                                 <div><pre><code>{
   "resourceType" : "Bundle",
@@ -3477,29 +3370,24 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
     }
   } ]
 }</code></pre></div>
-                                                    
-                                                    
-                                                    
-                                                            <div class="body__schema__header">Schema</div>
-                                                            <p>
-                                                                To see the schema, open
-                                                                <a class="body__schema__trythisapi__link" onclick="tryEndpointNow('/Relatedperson/get_related_people')" onkeyup="return vjsu.onKeyUp(event)">Try this API</a>
-                                                                and select the 'Schema' tab.
-                                                            </p>
-                                                    
-                                                    
+
+
+
+
+
+
                                                 <h3>HTTP status: 400</h3>
                                                 <div>Invalid NHS number supplied.</div>
 
 
                                                         <h4>Body</h4>
-                                                    
-                                                    
+
+
                                                             <h5 class="body__contenttype">
                                                                 <span class="body__contenttype__label">Content type: </span>
                                                                 <span class="body__contenttype__value">application/fhir+json</span>
                                                             </h5>
-                                                    
+
                                                                 <div class="body__example__header">Example</div>
                                                                 <div><pre><code>{
   "resourceType" : "OperationOutcome",
@@ -3516,29 +3404,24 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
     }
   } ]
 }</code></pre></div>
-                                                    
-                                                    
-                                                    
-                                                            <div class="body__schema__header">Schema</div>
-                                                            <p>
-                                                                To see the schema, open
-                                                                <a class="body__schema__trythisapi__link" onclick="tryEndpointNow('/Relatedperson/get_related_people')" onkeyup="return vjsu.onKeyUp(event)">Try this API</a>
-                                                                and select the 'Schema' tab.
-                                                            </p>
-                                                    
-                                                    
+
+
+
+
+
+
                                                 <h3>HTTP status: 404</h3>
                                                 <div>Related People not found.</div>
 
 
                                                         <h4>Body</h4>
-                                                    
-                                                    
+
+
                                                             <h5 class="body__contenttype">
                                                                 <span class="body__contenttype__label">Content type: </span>
                                                                 <span class="body__contenttype__value">application/fhir+json</span>
                                                             </h5>
-                                                    
+
                                                                 <div class="body__example__header">Example</div>
                                                                 <div><pre><code>{
   "resourceType" : "OperationOutcome",
@@ -3555,17 +3438,11 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
     }
   } ]
 }</code></pre></div>
-                                                    
-                                                    
-                                                    
-                                                            <div class="body__schema__header">Schema</div>
-                                                            <p>
-                                                                To see the schema, open
-                                                                <a class="body__schema__trythisapi__link" onclick="tryEndpointNow('/Relatedperson/get_related_people')" onkeyup="return vjsu.onKeyUp(event)">Try this API</a>
-                                                                and select the 'Schema' tab.
-                                                            </p>
-                                                    
-                                                    
+
+
+
+
+
                                         </article>
                                     </div>
 

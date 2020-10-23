@@ -70,9 +70,9 @@
                                             <p></p>
                                             <br/>
 
-                                            {{#hasRequestParams hasPathParams hasHeaderParams hasBodyParam hasFormParams hasQueryParams}}
+                                            {{isAnyTrue Boolean hasPathParams hasHeaderParams hasBodyParam hasFormParams hasQueryParams}}
                                                 <h2>Request</h2>
-                                            {{/hasRequestParams}}
+                                            {{isAnyTrue}}
 
                                             {{#hasPathParams}}
                                                 <div class="httpparams">
